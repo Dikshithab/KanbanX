@@ -1,0 +1,398 @@
+/* ====================================
+   TASK CARD
+==================================== */
+
+.task-card{
+    background:rgba(255,255,255,.75);
+    backdrop-filter:blur(18px);
+
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:18px;
+
+    position:relative;
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08),
+        0 0 0 1px rgba(255,255,255,.25);
+
+    transition:.35s;
+
+    cursor:grab;
+}
+
+.task-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:linear-gradient(90deg,#4F46E5,#7C3AED,#06B6D4);
+
+}
+
+.task-card:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    box-shadow:
+        0 30px 60px rgba(99,102,241,.25);
+
+}
+
+/* ====================================
+   TITLE
+==================================== */
+
+.task-card h3{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    margin-bottom:12px;
+
+}
+
+.task-card p{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+}
+.task-card:active{
+
+    cursor:grabbing;
+
+    transform:
+        rotate(2deg)
+        scale(1.04);
+
+}
+/* ====================================
+   PRIORITY
+==================================== */
+
+.priority{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.priority.high{
+
+    background:#EF4444;
+
+}
+
+.priority.medium{
+
+    background:#F59E0B;
+
+}
+
+.priority.low{
+
+    background:#22C55E;
+
+}
+
+/* ====================================
+   STATUS BADGE
+==================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+    letter-spacing:.4px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.12);
+
+}
+
+.badge.todo{
+
+    background:#3B82F6;
+
+}
+
+.badge.progress{
+
+    background:#F59E0B;
+
+}
+
+.badge.done{
+
+    background:#10B981;
+
+}
+
+.task-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+.priority{
+
+    gap:8px;
+
+    letter-spacing:.5px;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
+
+}
+
+/* ====================================
+   DUE DATE
+==================================== */
+.due-date{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#EEF2FF;
+
+    color:#4F46E5;
+
+    padding:10px 15px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+}
+body.dark .due-date{
+
+    background:#334155;
+
+    color:#cbd5e1;
+
+}
+/* ====================================
+   STATUS SELECT
+==================================== */
+
+.task-card select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+    border:1px solid var(--border);
+
+    background:var(--background);
+
+    color:var(--text);
+
+    transition:.3s;
+
+}
+
+.task-card select:focus{
+
+    border-color:#6366F1;
+
+    box-shadow:0 0 0 4px rgba(99,102,241,.15);
+
+}
+
+/* ====================================
+   BUTTONS
+==================================== */
+
+.task-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+}
+
+.task-buttons button{
+
+    min-width:70px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    width:auto;
+
+    padding:12px 18px;
+
+    font-weight:600;
+
+}
+
+.task-buttons button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* Save */
+
+.save-btn{
+
+    background:#2563EB;
+
+}
+
+.save-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* Edit */
+
+.edit-btn{
+
+    background:#F59E0B;
+
+}
+
+.edit-btn:hover{
+
+    background:#D97706;
+
+}
+
+/* Delete */
+
+.delete-btn{
+
+    background:#EF4444;
+
+}
+
+.delete-btn:hover{
+
+    background:#DC2626;
+
+}
+.task-buttons button:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.06);
+
+}
+/* ====================================
+   DARK MODE
+==================================== */
+
+body.dark .task-card{
+    background:rgba(30,41,59,.7);
+    backdrop-filter:blur(20px);
+
+}
+
+body.dark .due-date{
+
+    background:#273449;
+
+}
+
+body.dark .task-card select{
+
+    background:#1E293B;
+
+}
+
+/* ====================================
+   MOBILE
+==================================== */
+
+@media(max-width:768px){
+
+.task-card{
+
+    padding:18px;
+
+}
+
+.task-card h3{
+
+    font-size:18px;
+
+}
+
+.task-buttons{
+
+    justify-content:space-between;
+
+}
+
+.task-buttons button{
+
+    flex:1;
+
+}
+
+}

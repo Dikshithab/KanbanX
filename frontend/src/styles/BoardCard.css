@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Board Card Container Layout
+   ========================================================================== */
+.board-card {
+  background: var(--card, #ffffff);
+  border-radius: 22px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-left: 6px solid #7c3aed;
+  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.08);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.board-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.board-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(79, 70, 229, 0.16);
+}
+
+.board-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================================================
+   Main Block Header & Content Wrapper
+   ========================================================================== */
+.board-main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.board-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+/* ==========================================================================
+   Graphic Icon Context Block
+   ========================================================================== */
+.board-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  transition: transform 0.35s ease;
+}
+
+.board-card:hover .board-icon {
+  transform: rotate(-6px) scale(1.05);
+}
+
+/* ==========================================================================
+   Textual Info
+   ========================================================================== */
+.board-text h3 {
+  color: var(--text, #1f2937);
+  font-size: 21px;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+}
+
+.board-text p {
+  color: var(--text-light, #6b7280);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Action Control Triggers
+   ========================================================================== */
+.board-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.delete-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background: #fee2e2;
+  color: #ef4444;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Progress Metric Visualization Component
+   ========================================================================== */
+.progress-section {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text, #4b5563);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed, #06b6d4);
+  background-size: 200%;
+  animation: gradientMove 4s linear infinite;
+  transition: width 0.4s ease-out;
+}
+
+.progress-text {
+  margin: 6px 0 0 0;
+  color: var(--text-light, #6b7280);
+  font-size: 13px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+/* ==========================================================================
+   Dark Mode & Responsive Adjustments
+   ========================================================================== */
+body.dark .board-card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .progress-bar {
+  background: #334155;
+}
+
+body.dark .delete-btn {
+  background: #3b1d23;
+  color: #f87171;
+}
+
+body.dark .delete-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+@media (max-width: 500px) {
+  .board-card {
+    padding: 20px;
+  }
+  
+  .board-main-content {
+    align-items: flex-start;
+  }
+
+  .board-info-wrapper {
+    gap: 14px;
+  }
+
+  .board-icon {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .board-text h3 {
+    font-size: 18px;
+  }
+}

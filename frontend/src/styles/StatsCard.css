@@ -1,0 +1,106 @@
+/* ==========================================================================
+   STATISTICS DISPLAY CARD HOLDER
+   ========================================================================== */
+.stats-card {
+  background: var(--card, #ffffff);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(156, 163, 175, 0.08);
+  border-left: 6px solid var(--card-accent, #6366f1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   ICON & WRAPPER CONTENT SPECIFICS
+   ========================================================================== */
+.stats-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  /* Uses fallback values derived from incoming custom accent values */
+  background: var(--card-accent, #6366f1);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px -4px var(--card-accent, rgba(99, 102, 241, 0.3));
+}
+
+.stats-content {
+  flex: 1;
+  min-width: 0; /* Prevents text overflow blowouts */
+}
+
+.stats-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light, #6b7280);
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats-content h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text, #1f2937);
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.stats-content p {
+  color: #9ca3af;
+  font-size: 12px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SYSTEM THEME VARIABLES (DARK MODE SETTING OVERRIDES)
+   ========================================================================== */
+body.dark .stats-card {
+  background: var(--card, #1e293b);
+  border-color: rgba(255, 255, 255, 0.05);
+  border-left-color: var(--card-accent, #6366f1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .stats-card:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .stats-content h2 {
+  color: #f8fafc;
+}
+
+/* ==========================================================================
+   MOBILE SCALING MEDIA UTILITIES 
+   ========================================================================== */
+@media (max-width: 480px) {
+  .stats-card {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .stats-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .stats-content h2 {
+    font-size: 24px;
+  }
+}

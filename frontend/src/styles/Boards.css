@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Boards Layout
+   ========================================================================== */
+.boards-page {
+  margin-left: 270px;
+  margin-top: 75px;
+  padding: 35px;
+  min-height: 100vh;
+  background: var(--background, #f8fafc);
+  transition: background 0.3s ease;
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+.boards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.boards-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text, #1f2937);
+}
+
+.boards-header p {
+  margin-top: 8px;
+  color: var(--text-light, #6b7280);
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   Grid System
+   ========================================================================== */
+.boards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+/* ==========================================================================
+   Board Showcase Card
+   ========================================================================== */
+.board-card-new {
+  background: var(--card, #ffffff);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(99, 102, 241, 0.05);
+}
+
+.board-card-new::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+.board-card-new:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
+}
+
+/* ==========================================================================
+   Card Elements (Top, Icon, Count)
+   ========================================================================== */
+.board-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.board-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 26px;
+  box-shadow: 0 8px 18px rgba(99, 102, 241, 0.25);
+}
+
+.task-count {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Typography & Typography Transitions
+   ========================================================================== */
+.board-card-new h2 {
+  margin-bottom: 10px;
+  color: var(--text, #111827);
+  font-size: 24px;
+}
+
+.board-card-new p {
+  color: var(--text-light, #6b7280);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ==========================================================================
+   Action Buttons
+   ========================================================================== */
+.open-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.open-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.open-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.open-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Empty Board State
+   ========================================================================== */
+.empty-board {
+  grid-column: 1 / -1;
+  background: var(--card, #ffffff);
+  padding: 70px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.empty-board h1 {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+
+.empty-board h2 {
+  margin: 15px 0;
+  color: var(--text, #111827);
+}
+
+.empty-board p {
+  color: var(--text-light, #6b7280);
+}
+
+/* ==========================================================================
+   Responsive Viewports
+   ========================================================================== */
+@media (max-width: 900px) {
+  .boards-page {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .boards-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* ==========================================================================
+   Dark Theme System Balancing
+   ========================================================================== */
+body.dark .board-card-new,
+body.dark .empty-board {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .task-count {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}

@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Structural Layout Architecture
+   ========================================================================== */
+.profile-page {
+  margin-left: 270px;
+  margin-top: 75px;
+  padding: 35px;
+  background: var(--background, #f8fafc);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.profile-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text, #1f2937);
+}
+
+.profile-layout-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Profile Identification Card
+   ========================================================================== */
+.profile-card {
+  background: var(--card, #ffffff);
+  padding: 40px 30px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.05);
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  font-size: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.profile-details h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text, #111827);
+  margin-bottom: 6px;
+}
+
+.profile-details p {
+  color: var(--text-light, #6b7280);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.role-tag {
+  background: rgba(99, 102, 241, 0.08);
+  color: #4f46e5;
+  padding: 8px 18px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Form Editing Actions inside Profile Card */
+.profile-edit-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-edit-inputs input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid rgba(156, 163, 175, 0.25);
+  border-radius: 12px;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+}
+
+.profile-edit-inputs input:focus {
+  border-color: #6366f1;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Button UI Components */
+.edit-toggle-btn, .save-btn, .cancel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.edit-toggle-btn, .save-btn {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+}
+
+.edit-toggle-btn:hover, .save-btn:hover {
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.25);
+  transform: translateY(-1px);
+}
+
+.cancel-btn {
+  background: rgba(156, 163, 175, 0.15);
+  color: var(--text);
+}
+
+/* ==========================================================================
+   Metrics / Productivity Showcase Grid
+   ========================================================================== */
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.profile-box {
+  background: var(--card, #ffffff);
+  padding: 30px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.02);
+}
+
+.profile-box h2 {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+
+.profile-box p {
+  color: var(--text-light, #6b7280);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   Lower Functional Row Blocks
+   ========================================================================== */
+.profile-modules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.achievement-card, .password-card {
+  background: var(--card, #ffffff);
+  padding: 32px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.achievement-card h2, .password-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text, #1f2937);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.module-icon {
+  color: #6366f1;
+}
+
+.module-icon.gold {
+  color: #f59e0b;
+}
+
+/* Achievement Badges Flex Wrapper */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.badge {
+  padding: 10px 18px;
+  color: #ffffff;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.badge.hot { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.badge.rock { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+.badge.organizer { background: linear-gradient(135deg, #10b981, #059669); }
+.badge.planner { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+
+.no-badges {
+  color: var(--text-light, #6b7280);
+  font-style: italic;
+}
+
+/* Secure Password Forms */
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.password-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(156, 163, 175, 0.25);
+  border-radius: 12px;
+  font-size: 14px;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.password-card input:focus {
+  border-color: #6366f1;
+}
+
+.pwd-submit-btn {
+  padding: 14px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pwd-submit-btn:hover {
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .profile-layout-grid, .profile-modules {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .profile-page {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .profile-stats {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,307 @@
+/* ===========================
+   Dashboard Layout
+=========================== */
+.dashboard {
+  margin-left: 260px;
+  margin-top: 70px;
+  padding: 35px;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+.hero-section {
+  margin-bottom: 30px;
+}
+
+.stats-section {
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   Hero
+=========================== */
+.dashboard-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
+  color: white;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(79, 70, 229, 0.25);
+}
+
+.dashboard-hero::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: -90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dashboard-hero::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: -40px;
+  bottom: -60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-hero h1 {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.dashboard-hero p {
+  font-size: 16px;
+  opacity: 0.95;
+  max-width: 600px;
+}
+
+/* ===========================
+   Stats
+=========================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* Base stat card setup if components inject styles */
+.stat-card {
+  background: var(--card);
+}
+
+/* ===========================
+   Analytics Section Setup
+=========================== */
+.analytics-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+  align-items: start;
+}
+
+.analytics-left {
+  width: 100%;
+}
+
+.analytics-right {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ===========================
+   Cards Layout & Effects
+=========================== */
+.chart-card,
+.progress-card,
+.due-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.08);
+  transition: 0.3s ease;
+}
+
+.chart-card:hover,
+.progress-card:hover,
+.due-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(99, 102, 241, 0.15);
+}
+
+/* ===========================
+   Progress Circle
+=========================== */
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-wrapper {
+  width: 180px;
+  height: 180px;
+}
+
+.progress-card h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ===========================
+   Due Today / Lists Items
+=========================== */
+.due-card h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.due-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 18px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  background: var(--background);
+  border-left: 5px solid #8b5cf6;
+  transition: 0.3s;
+}
+
+.due-task:hover {
+  transform: translateX(6px);
+  background: rgba(99, 102, 241, 0.12);
+}
+
+.due-task span {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #7c3aed;
+  color: white;
+  font-size: 12px;
+}
+
+/* ===========================
+   Toolbar (Search & Button Row)
+=========================== */
+.boards-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card);
+  padding: 20px;
+  border-radius: 18px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* ===========================
+   Search Box
+=========================== */
+.search-box {
+  width: 340px;
+  padding: 15px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.15);
+}
+
+/* ===========================
+   Board Display List Wrap
+=========================== */
+.boards-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* ===========================
+   Empty State
+=========================== */
+.empty-state {
+  background: var(--card);
+  padding: 60px;
+  text-align: center;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.empty-state h1 {
+  font-size: 70px;
+}
+
+.empty-state h2 {
+  margin: 15px 0;
+}
+
+.empty-state p {
+  color: var(--text-light);
+}
+
+/* ===========================
+   Responsive Design Breakpoints
+=========================== */
+@media (max-width: 1100px) {
+  .dashboard {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .analytics-section {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .boards-toolbar {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-hero {
+    padding: 30px;
+  }
+
+  .dashboard-hero h1 {
+    font-size: 28px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   Dark Mode Theme System Fixes
+=========================== */
+body.dark .stats-grid .stat-card,
+body.dark .stat-card {
+  background: var(--card);
+}
+
+body.dark .search-box {
+  background: var(--card);
+  color: var(--text);
+}
+
+body.dark .due-task {
+  background: #273449;
+}
+
+body.dark .due-task:hover {
+  background: #334155;
+}
+
+body.dark .dashboard-hero {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}

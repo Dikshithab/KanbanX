@@ -1,0 +1,161 @@
+/* ==========================================================================
+   NAVBAR ROOT CONTAINER CONTAINER
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 270px;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: var(--card, rgba(255, 255, 255, 0.85));
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  transition: left 0.3s ease, background-color 0.3s ease;
+}
+
+/* System Dark Mode Theme Variant Override */
+body.dark .navbar {
+  background: var(--card, rgba(30, 41, 59, 0.85));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   TYPOGRAPHY ELEMENTS
+   ========================================================================== */
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text, #1f2937);
+  margin: 0;
+}
+
+/* ==========================================================================
+   RIGHT CONTENT NAVIGATION PANEL INTERFACES
+   ========================================================================== */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Base generic icon configurations */
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background, #f3f4f6);
+  color: var(--text, #4b5563);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 16px;
+}
+
+.nav-icon:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+}
+
+body.dark .nav-icon {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   SPECIAL CONTROLS (PROFILE / THEME TOGGLE / LOGOUT)
+   ========================================================================== */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 20px;
+  background: var(--background, #f3f4f6);
+  color: var(--text, #4b5563);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.profile-btn h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-btn:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+}
+
+body.dark .profile-btn {
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #ffffff;
+  font-size: 16px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  background: #ef4444;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* ==========================================================================
+   RESPONSIVE ADAPTATION MEDIA BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .navbar {
+    left: 0;
+    padding: 0 16px;
+  }
+  
+  .profile-btn h4, 
+  .logout-btn span {
+    display: none; /* Collapses text labels neatly on smaller handheld touch screens */
+  }
+
+  .logout-btn {
+    padding: 10px;
+  }
+}
