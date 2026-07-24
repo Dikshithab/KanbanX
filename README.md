@@ -214,7 +214,15 @@ During this project I gained hands-on experience in:
 
 🔗 GitHub: https://github.com/Dikshithab
 
-💼 LinkedIn: *(Add your LinkedIn profile URL here)*
+## 🔗 Live Demo
+- 🌐 GitHub Pages: https://dikshithab.github.io/KanbanX/
+- ☁️ Render Deployment: https://kanbanx-frontend-mobk.onrender.com/
+
+## ⚙️ Backend API
+- https://kanbanx-backend-w554.onrender.com
+
+## 💻 Source Code
+- https://github.com/Dikshithab/KanbanX
 
 ---
 
